@@ -1,0 +1,4 @@
+Sitemap: https://nickman.blog/sitemapindex.xml
+
+User-Agent: *
+Host: nickman.blog
