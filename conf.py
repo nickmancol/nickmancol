@@ -1416,3 +1416,17 @@ GLOBAL_CONTEXT = {}
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
+
+
+# Name for the page with the list of all page tags
+TAGGED_PAGES_INDEX_PATH = "tagged_pages.html"
+# Folder where the files for each tag should be
+TAGGED_PAGES_PATH = "tagged_pages"
+# Similar to TAG_TITLES, defaults to it.
+TAGGED_PAGES_TITLES = {
+   DEFAULT_LANG: {
+       "blogging": "Pages about blogging",
+       "open source": "Pages about open source software",
+       "foo": "Pages about open source software",
+   },
+}
