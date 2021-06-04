@@ -7,12 +7,12 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://nickman.blog/</loc>
-  <lastmod>2021-06-03T22:00:00Z</lastmod>
+  <lastmod>2021-06-04T17:18:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nickman.blog/es/" />
  </url>
  <url>
   <loc>https://nickman.blog/archive.html</loc>
-  <lastmod>2021-06-03T22:00:00Z</lastmod>
+  <lastmod>2021-06-04T20:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://nickman.blog/blog/</loc>
@@ -24,11 +24,11 @@
  </url>
  <url>
   <loc>https://nickman.blog/es/</loc>
-  <lastmod>2021-06-03T22:00:00Z</lastmod>
+  <lastmod>2021-06-04T17:18:00Z</lastmod>
  </url>
  <url>
   <loc>https://nickman.blog/es/archive.html</loc>
-  <lastmod>2021-06-03T22:00:00Z</lastmod>
+  <lastmod>2021-06-04T20:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://nickman.blog/es/blog/</loc>
@@ -47,6 +47,10 @@
   <lastmod>2021-06-03T22:00:00Z</lastmod>
  </url>
  <url>
+  <loc>https://nickman.blog/es/tagged_pages.html</loc>
+  <lastmod>2021-06-04T20:45:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://nickman.blog/galleries/</loc>
   <lastmod>2021-06-03T22:00:00Z</lastmod>
  </url>
@@ -58,5 +62,9 @@
   <loc>https://nickman.blog/profile/</loc>
   <lastmod>2021-06-03T22:00:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="es" href="https://nickman.blog/es/profile/" />
+ </url>
+ <url>
+  <loc>https://nickman.blog/tagged_pages.html</loc>
+  <lastmod>2021-06-04T20:45:00Z</lastmod>
  </url>
 </urlset>

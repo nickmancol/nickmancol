@@ -165,7 +165,7 @@ NAVIGATION_ALT_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootstrap4"
+THEME = "jidn"
 
 # A theme color. In default themes, it might be displayed by some browsers as
 # the browser UI color (eg. Chrome on Android). Other themes might also use it
@@ -1410,13 +1410,30 @@ WARN_ABOUT_TAG_METADATA = False
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-GLOBAL_CONTEXT = {}
+GLOBAL_CONTEXT = {
+    "JIDN": {
+        BLOG_AUTHOR: {   # Or "Given Surname" for alternate authors
+            "image": "https://nickman.blog/images/profile.jpg",
+
+            ## The following are all individually optional
+            "email": BLOG_EMAIL,  # or something else for alternate authors
+            "bio": """I am the very model of a modern, major general.""",
+            "map": "Kahlotus, WA  USA",
+            "social": (
+                "https://twitter.com/username",
+                "https://facebook.com/username",
+                "https://github.com/username",
+                # You get the idea
+            )
+        }
+    # Add any needed alternate authors
+    }    
+}
 
 # Add functions here and they will be called with template
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
-
 
 # Name for the page with the list of all page tags
 TAGGED_PAGES_INDEX_PATH = "tagged_pages.html"
@@ -1430,3 +1447,126 @@ TAGGED_PAGES_TITLES = {
        "foo": "Pages about open source software",
    },
 }
+
+# List XML-RPC services (recommended) in PING_XMLRPC_SERVICES and HTTP
+# GET services (web pages) in PING_GET_SERVICES.
+# Entries pointing to domains, such as Ping-o-Matic, must end with
+# a forward slash to avoid having "/RPC2" appended automatically.
+# Consider adding `nikola ping` as the last entry in DEPLOY_COMMANDS.
+PING_XMLRPC_SERVICES = [
+   "http://blogsearch.google.com/ping/RPC2",
+   "http://ping.blogs.yandex.ru/RPC2",
+   "http://ping.baidu.com/ping/RPC2",
+   "http://rpc.pingomatic.com/",
+]
+
+PING_GET_SERVICES = [
+   "http://www.bing.com/webmaster/ping.aspx?sitemap={0}".format(SITE_URL+'sitemap.xml'),
+   "http://www.google.com/webmasters/tools/ping?sitemap={0}".format(SITE_URL+'sitemap.xml'),
+]
+
+# Renders two tag clouds for tags and one for categories:
+# - a small one with at most 40 tags;
+# - a large one with all tags;
+# - a large one with all categories.
+# 
+# The generated files are
+# - output/tagcloud-LANG.inc.html
+# - output/tagcloud-LANG-large.inc.html
+# - output/catcloud-LANG.inc.html
+# and
+# - output/assets/css/tagcloud-LANG-small.css
+# - output/assets/css/tagcloud-LANG-large.css
+# - output/assets/css/catcloud-LANG-large.css
+
+RENDER_STATIC_TAG_CLOUDS = {
+    'tag-small': {
+        # Tag cloud's name (used as CSS class). {0} will be replaced
+        # by the language.
+        'name': 'tcs-{0}',
+
+        # Filename for the HTML fragment. {0} will be replaced by the
+        # language.
+        'filename': 'tagcloud-{0}.inc.html',
+
+        # The taxonomy type to obtain the classification ("tags")
+        # from.
+        'taxonomy_type': 'tag',
+
+        # Filename for the CSS. {0} will be replaced by the language.
+        'style_filename': 'assets/css/tagcloud-{0}-small.css',
+
+        # Maximum number of levels to be generated
+        'max_number_of_levels': 15,
+
+        # Maximum number of tags in cloud. Negative values mean
+        # that all tags will appear.
+        'max_tags': 40,
+
+        # Tags which appear less often than this number will be
+        # ignored.
+        'minimal_number_of_appearances': 2,
+
+        # Colors defining a gradient out of which the tag font colors
+        # are taken. The colors are specified as RGP triples with each
+        # component being a floating point number between 0.0 and 1.0.
+        'colors': ((0.6,0.6,0.6), (1.0,1.0,1.0)),
+
+        # Colors defining a gradient out of which the tag background
+        # colors are taken.
+        'background_colors': ((0.1, 0.1, 0.1), ),
+
+        # Colors defining a gradient out of which the tag border colors
+        # are taken.
+        'border_colors': ((0.4, 0.4, 0.4), ),
+
+        # Interval (min_value, max_value) for the font size
+        'font_sizes': (6, 20),
+
+        # If positive, will be multiplied by font size to yield the
+        # CSS border radius and the vertical margin. (The horizontal
+        # margin is set to zero.)
+        'round_factor': 0.6,
+    },
+    'tag-large': {
+        'name': 'tcl-{0}',
+        'filename': 'tagcloud-{0}-large.inc',
+        'taxonomy_type': 'tag',
+        'style_filename': 'assets/css/tagcloud-{0}-large.css',
+        'max_number_of_levels': 100,
+        'minimal_number_of_appearances': 1,
+        'colors': ((0.6,0.6,0.6), (1.0,1.0,1.0)),
+        'background_colors': ((0.1, 0.1, 0.1), ),
+        'border_colors': ((0.4, 0.4, 0.4), ),
+        'font_sizes': (8, 35),
+        'round_factor': 0.3,
+    },
+    'category-large': {
+        'name': 'ccl-{0}',
+        'filename': 'catcloud-{0}-large.inc',
+        'taxonomy_type': 'category',
+        'style_filename': 'assets/css/catcloud-{0}-large.css',
+        'max_number_of_levels': 100,
+        'minimal_number_of_appearances': 1,
+        'colors': ((0.6,0.6,0.6), (1.0,1.0,1.0)),
+        'background_colors': ((0.1, 0.1, 0.1), ),
+        'border_colors': ((0.4, 0.4, 0.4), ),
+        'font_sizes': (8, 35),
+        'round_factor': 0.3,
+    },
+}
+
+# Generates a /index.json with the most recent posts from /index.html.
+# Will also create /$section/index.json for each section.
+# Can be expanded with these options:
+
+# Number of posts to include, defaults to INDEX_DISPLAY_POST_COUNT (10)
+RECENT_POSTS_JSON_LENGTH = 5
+
+# Include {"desc": post.description}, defaults to False
+RECENT_POSTS_JSON_DESCRIPTION = False
+
+# Include {"img": post.meta.previewimage}, defaults to False
+RECENT_POSTS_JSON_PREVIEWIMAGE = False
+
+POSTS_SECTIONS = None
