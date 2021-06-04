@@ -1,8 +1,8 @@
-.. title: Nicolas Bohorquez sitio web personal
+.. title: Nicolas Bohorquez - Ecclectic
 .. slug: index
 .. date: 2021-06-03 12:00:00 UTC-5
 .. updated: 2021-06-03 12:00:00 UTC-5
-.. description: Nicolas Bohorquez sitio web personal
+.. description: Nicolas Bohorquez - Ecclectic
 .. nocomments: True
 
     .. raw:: html
